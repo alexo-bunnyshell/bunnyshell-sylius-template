@@ -11,11 +11,11 @@ components:
     kind: Application
     name: php
     gitRepo: 'https://github.com/bunnyshell/templates.git'
-    gitBranch: 'sylius-dev-1.12/v0.1.0'
-    gitApplicationPath: components/sylius-standard-edition-1.12
+    gitBranch: 'main'
+    gitApplicationPath: .
     dockerCompose:
       build:
-        context: ./components/sylius-standard-edition-1.12
+        context: .
         target: sylius_php_dev_bunnyshell
       environment:
         APP_DEBUG: '1'
@@ -74,11 +74,11 @@ components:
     kind: SidecarContainer
     name: nginx
     gitRepo: 'https://github.com/bunnyshell/templates.git'
-    gitBranch: 'sylius-dev-1.12/v0.1.0'
-    gitApplicationPath: components/sylius-standard-edition-1.12
+    gitBranch: 'main'
+    gitApplicationPath: .
     dockerCompose:
       build:
-        context: ./components/sylius-standard-edition-1.12
+        context: .
         target: sylius_nginx_bunnyshell
       environment:
         FPM_HOST: localhost
@@ -93,11 +93,11 @@ components:
     kind: SidecarContainer
     name: node
     gitRepo: 'https://github.com/bunnyshell/templates.git'
-    gitBranch: 'sylius-dev-1.12/v0.1.0'
-    gitApplicationPath: components/sylius-standard-edition-1.12
+    gitBranch: 'main'
+    gitApplicationPath: .
     dockerCompose:
       build:
-        context: ./components/sylius-standard-edition-1.12
+        context: .
         target: sylius_node
       command:
         - yarn
@@ -117,11 +117,11 @@ components:
     kind: InitContainer
     name: init-migrations
     gitRepo: 'https://github.com/bunnyshell/templates.git'
-    gitBranch: 'sylius-dev-1.12/v0.1.0'
-    gitApplicationPath: components/sylius-standard-edition-1.12
+    gitBranch: 'main'
+    gitApplicationPath: .
     dockerCompose:
       build:
-        context: ./components/sylius-standard-edition-1.12
+        context: .
         target: sylius_migrations_dev
       environment:
         APP_DEBUG: '1'
