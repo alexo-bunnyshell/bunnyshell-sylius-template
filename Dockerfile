@@ -14,6 +14,9 @@ FROM mlocati/php-extension-installer:${PHP_EXTENSION_INSTALLER_VERSION} AS php_e
 
 FROM php:${PHP_VERSION}-fpm-alpine${ALPINE_VERSION} AS base
 
+# composer memmory limit problem: https://getcomposer.org/doc/articles/troubleshooting.md#memory-limit-errors
+ENV COMPOSER_MEMORY_LIMIT=-1
+
 # persistent / runtime deps
 RUN apk add --no-cache \
         acl \
